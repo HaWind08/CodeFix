@@ -1,0 +1,74 @@
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+const int MAXA = 100;
+
+void Nhap(double x[MAXA], int &n)
+{
+	cout << "Nhap so phan tu cua vecto X: "; cin >> n;
+	
+	cout << "Nhap vecto X: " << endl;
+	for(int i = 0; i < n;i++)
+	{
+		cout << "x["<<i<<"]= ";
+		cin >> x[i];
+	}
+}
+
+void C1(double x[MAXA], int n)
+{
+	double X1 = 0;
+	for(int i = 0; i < n;i++)
+	{
+		X1 += abs(x[i]);
+	}
+	cout << "Chuan 1: " << X1 << endl;
+}
+
+void C2(double x[MAXA], int n)
+{
+	double TongTrongCan = 0,X2;
+	for(int i = 0; i < n;i++)
+	{
+		TongTrongCan += x[i]*x[i];
+	}
+	X2 = sqrt(TongTrongCan);
+	cout << "Chuan 2: " << X2 << endl;
+}
+
+void CVC(double x[MAXA], int n)
+{
+	double max = x[0];
+	for(int i = 1; i < n; i++)
+	{
+		if(x[i] > max) max = x[i];
+	}
+	
+	cout << "Chuan vo cung: " << max << endl;
+}
+
+void C0(double x[MAXA], int n)
+{
+	double Dem = 0;
+	for(int i = 0; i < n; i++)
+	{
+		if(x[i] != 0) Dem++;
+	}
+	cout << "Chuan 0: " << Dem << endl;
+}
+
+int main()
+{
+	double x[MAXA]; int n;
+	
+	Nhap(x,n);
+	C1(x,n);
+	C2(x,n);
+	CVC(x,n);
+	C0(x,n);
+	
+	return 0;
+}
+
