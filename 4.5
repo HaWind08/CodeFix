@@ -1,0 +1,79 @@
+#include<iostream>
+
+using namespace std;
+
+const int MAXA = 100;
+
+void Nhap(double a[MAXA], int &n)
+{
+	do
+	{
+		cout << "So phan tu cua day: "; cin >> n;
+	}while(n < 2);
+	
+	cout << "Nhap cac phan tu cua day: " << endl;
+	for(int i = 0; i < n;i++)
+	{
+		cout << "a["<<i<<"]= ";
+		cin >> a[i];
+	}
+}
+
+void Check(double a[MAXA], int n)
+{
+	bool tang, tang_ngat, giam, giam_ngat;
+	tang = tang_ngat = giam = giam_ngat = true;
+	
+	for(int i = 0; i < n-1;i++)
+	{
+		if(a[i] > a[i+1])
+		{
+			tang = false;
+			tang_ngat = false;
+		}
+		
+		if(a[i] >= a[i+1])
+		{
+			tang_ngat = false;	
+		}
+		
+		if(a[i] < a[i+1])
+		{
+			giam_ngat = false;
+			giam = false;
+		}
+		
+		if(a[i] <= a[i+1])
+		{
+			giam_ngat = false;
+		}
+	}
+	
+	if(tang_ngat)
+	{
+		cout << "Day duoc sap xep tang ngat" << endl;
+	}
+	else if(tang)
+	{
+		cout << "Day duoc sap xep tang" << endl;
+	}
+	else if(giam_ngat)
+	{
+		cout << "Day duoc sap xep giam ngat" << endl;
+	}
+	else if(giam)
+	{
+		cout << "Day duoc sap giam" << endl;
+	}
+	else cout << "Day chua duoc sap xep";
+} 
+
+int main()
+{
+	double a[MAXA]; int n;
+	
+	Nhap(a,n);
+	Check(a,n);
+	
+	return 0;
+}
