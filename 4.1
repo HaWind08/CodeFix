@@ -1,0 +1,47 @@
+#include<iostream>
+
+using namespace std;
+
+const int MAXA = 100;
+
+void Nhap(double a[MAXA], int &n)
+{
+	cout << "So phan tu cua day so: "; cin >> n;
+	
+	cout << "Nhap day so: " << endl;
+	for(int i = 0; i < n;i++)
+	{
+		cout << "a["<<i<<"]= ";
+		cin >> a[i];
+	}
+}
+
+void TimMAX_MIN(double a[MAXA], int n)
+{
+	double max = a[0];
+	double min = a[0];
+	
+	for(int i = 1; i < n;i++)
+	{
+		if(a[i] > max) max = a[i];
+		if(a[i] < min) min = a[i];	
+	}
+	
+	cout << "Phan tu lon nhat cua day la: " << max << endl;
+	cout << "Phan tu nho nhat cua day la: " << min << endl;
+}
+
+int main()
+{
+	double a[MAXA];
+	int n;
+	
+	Nhap(a,n);
+	TimMAX_MIN(a,n);
+	
+	return 0;
+}
+
+
+
+
