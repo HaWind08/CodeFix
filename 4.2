@@ -1,0 +1,49 @@
+#include<iostream>
+
+using namespace std;
+
+const int MAXA = 100;
+
+void Nhap(int a[MAXA], int &n)
+{
+	cout << "Nhap n: "; cin >> n;
+	
+	cout << "Nhap mang: " << endl;
+	for(int i = 0; i < n;i++)
+	{
+		cout << "a["<<i<<"]= ";
+		cin >> a[i];
+	}
+}
+
+void SapXep(int a[MAXA], int n)
+{
+	for(int i = 0; i < n;i++)
+	{
+		for(int j = i + 1; j < n; j++)
+		{
+			if(a[i] > a[j])
+			{
+				int temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+			}
+		}
+	}
+	
+	cout << "Mang sau khi sap xep: " << endl; 
+	for(int i = 0; i < n;i++)
+	{
+		cout << a[i] << " ";
+	}
+}
+
+int main()
+{
+	int a[MAXA], n;
+	
+	Nhap(a,n);
+	SapXep(a,n);
+	
+	return 0;
+}
