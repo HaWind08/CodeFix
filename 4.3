@@ -1,0 +1,46 @@
+#include<iostream>
+
+using namespace std;
+
+const int MAXA = 100;
+
+void Nhap(double x[MAXA], double y[MAXA], int &n)
+{
+	cout << "Nhap n: "; cin >> n;
+	
+	cout << "Nhap vecto x: " << endl;
+	for(int i = 0; i < n;i++)
+	{
+		cout << "x["<<i<<"]= ";
+		cin >> x[i];
+	}
+	
+	cout << "Nhap vecto y: " << endl;
+	for(int i = 0; i < n;i++)
+	{
+		cout << "y["<<i<<"]= ";
+		cin >> y[i];
+	}
+}
+
+void TinhToan(double x[MAXA], double y[MAXA], int n)
+{
+	double result = 0;
+	for(int i = 0; i < n;i++)
+	{
+		result = result + x[i]*y[i];
+	}
+	
+	cout << "Tich vo huong cua 2 vecto la: " << result;
+}
+
+int main()
+{
+	double x[MAXA], y[MAXA];
+	int n;
+	
+	Nhap(x,y,n);
+	TinhToan(x,y,n);
+	
+	return 0; 
+}
